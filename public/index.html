@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title> test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+<body>
+    <div class="container" ng-controller="AppCtrl">
+        <h1>test</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{department.id}}</td>
+                    <td><input class="form-control" ng-model="department.name"></td>
+                    <td><input class="form-control" ng-model="department.description"></td>
+                    <td><button ng-if="showAdd" class=" btn btn-primary" ng-click="addDepartment()">Add </button> </td>
+                    <td><button class="btn btn-info" ng-click="update()">Update</button>
+                        <button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+                </tr>
+                <tr ng-repeat="department in departments">
+                    <td>{{department.id}}</td>
+                    <td>{{department.name}}</td>
+                    <td>{{department.description}}</td>
+                    <td><button class="btn btn-warning" ng-click="edit(department.id)">Edit</button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
